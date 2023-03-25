@@ -1,0 +1,1 @@
+shell.run("rm loadAPIs.lua") shell.run("pastebin get 6x0B3PVu loadAPIs.lua") shell.run("loadAPIs.lua")
