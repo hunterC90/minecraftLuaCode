@@ -18,13 +18,13 @@ end
 local dt = getDeviceType()
 
 local APIs_all = {
-    ["storage.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/storage.lua?token=GHSAT0AAAAAAB7V2JHNWT7MNJ6AT2XQ5BSMZBE55AQ"
+    ["storage.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/storage.lua?token=GHSAT0AAAAAAB7V2JHNH6PPKG655WDJKVLGZBE6BWQ"
 }
 
 local APIs_turtle = {
-    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/setHome.lua?token=GHSAT0AAAAAAB7V2JHMYZNHXI4LXNRAP7LEZBE55AA",
-    ["egps"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/egps.lua?token=GHSAT0AAAAAAB7V2JHNFLWD76RQQ7F5BMSKZBE546Q",
-    ["robot.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/robot.lua?token=GHSAT0AAAAAAB7V2JHMRRXOYKWXGORIAMS2ZBE547A"
+    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/setHome.lua?token=GHSAT0AAAAAAB7V2JHMU5L4UXJOE6IYTXZWZBE6BWA",
+    ["egps"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/egps.lua?token=GHSAT0AAAAAAB7V2JHNXZDWZWF26HO7UNVMZBE6BUQ",
+    ["robot.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/robot.lua?token=GHSAT0AAAAAAB7V2JHN6DQUSR4GW5B5C2DWZBE6BVA"
 }
 
 local APIs_computer = {
