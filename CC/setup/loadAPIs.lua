@@ -18,13 +18,13 @@ end
 local dt = getDeviceType()
 
 local APIs_all = {
-    ["storage.lua"] = "3MzNhUv4"
+    ["storage.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/storage.lua?token=GHSAT0AAAAAAB7V2JHNWT7MNJ6AT2XQ5BSMZBE55AQ"
 }
 
 local APIs_turtle = {
-    ["home.lua"] = "ad7iiybK",
-    ["egps"] = "9x7wXGBm",
-    ["robot.lua"] = "n26GUHfJ"
+    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/setHome.lua?token=GHSAT0AAAAAAB7V2JHMYZNHXI4LXNRAP7LEZBE55AA",
+    ["egps"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/egps.lua?token=GHSAT0AAAAAAB7V2JHNFLWD76RQQ7F5BMSKZBE546Q",
+    ["robot.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/APIs/robot.lua?token=GHSAT0AAAAAAB7V2JHMRRXOYKWXGORIAMS2ZBE547A"
 }
 
 local APIs_computer = {
@@ -55,7 +55,7 @@ for k,v in pairs(APIs) do
 
     local f = io.open("APIs/" .. k, "r")
     if f == nil then
-        shell.run("pastebin get " .. v .. " APIs/" .. k)
+        shell.run("wget " .. v .. " APIs/" .. k)
     end
     io.close(f)
 end
@@ -72,7 +72,7 @@ local localFiles_all = {
 }
 
 local localFiles_turtle = {
-    ["home.lua"] = "KmGB4sne"
+    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/home.lua?token=GHSAT0AAAAAAB7V2JHMLJYH6MNXG5V6U764ZBE55YQ"
 }
 
 local localFiles_computer = {
@@ -99,7 +99,7 @@ for k,v in pairs(localFiles) do
 
     local f = io.open(k, "r")
     if f == nil then
-        shell.run("pastebin get " .. v .. " " .. k)
+        shell.run("wget " .. v .. " " .. k)
     end
     io.close(f)
 end
