@@ -61,6 +61,19 @@ function initAutomata(printFlag)
     return true
 end
 
+-- Gets the first empty slot in the turtle
+-- Return true if it finds one
+-- False if it can't find one
+function getEmptySlot()  
+    for i = 1, 16 do
+        robot.select(i)
+        if robot.getItemCount() == 0 then
+            return true
+        end 
+    end
+    return false
+end
+
 -- default fuel value - reset to desired value
 -- notice that if below minFuelLevel intended behavior is for the turtle to continue what it's doing
 -- it is assumed that if you get below the minFuelLevel that the program will bring the turtle to where it can get fuel
@@ -509,6 +522,7 @@ function initWeakAutomataFunctions()
         local flag, msg = automata.setFuelConsumptionRate(num)
         if flag then
             coolDownTime = 5/num
+            useOnBlockCoolDownS = math.min(useOnBlockCoolDownS,os.clock() + coolDownTime)
             return true
         else
             return flag, msg

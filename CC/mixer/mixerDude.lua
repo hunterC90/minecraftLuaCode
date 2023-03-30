@@ -1,9 +1,9 @@
 -- This script is part of the mixer automation
--- It
 
 ----- CONFIG VALUES -----
-inputSide = "left" -- side of input chest
-outputSide = "right" -- side of output chest which connects to AE network
+inputSide = "minecraft:chest_11" -- side of input chest
+outputSide = "minecraft:chest_12" -- side of output chest which connects to AE network
+robotNum = 8
 -------------------------
 
 robot = {} -- a list where each element is a table with keys chest, name (name of chest peripheral), recipe, and busy flag
@@ -27,7 +27,7 @@ inputItems = {} -- list of input items from chest.list()
 function loadRecipes()
     -- delete the old recipes.txt file and get a new one from pastebin
     shell.run("rm recipes.txt")
-    shell.run("pastebin get !CODE HERE! recipes.txt")
+    shell.run("pastebin get MfGwYCTF recipes.txt")
 
     -- open file for reading
     local file = io.open("recipes.txt", "r")
@@ -50,18 +50,22 @@ function initChests()
     inputChest = peripheral.wrap(inputSide)
     outputChest = peripheral.wrap(outputSide)
 
-    local chest = peripheral.find("minecraft:chest_0") -- Check name that CC gives when connecting chests to modems
-
     local i = 1
-    while chest ~= nil do
-        robot[i].name = "minecraft:chest_" .. tostring(i-1)
-        robot[i].recipe = nil
-        robot[i].busy = false
-        robot[i].chest = chest
-
-        chest = peripheral.wrap("minecraft:chest_" .. tostring(i))
-
-        i = i + 1
+    local k = 0
+    local chest = peripheral.find("minecraft:chest_0") -- Check name that CC gives when connecting chests to modems
+    local chestStr = "minecraft:chest_" .. tostring(k)
+    while robotNum - i >= 0 do
+        if chest ~= nil and chestStr ~= inputSide and chestStr ~= outputSide then 
+            robot[i] = {}
+            robot[i].name = "minecraft:chest_" .. tostring(k)
+            robot[i].recipe = nil
+            robot[i].busy = false
+            robot[i].chest = chest
+            i = i + 1
+        end
+        k = k + 1
+        chestStr = "minecraft:chest_" .. tostring(k)
+        chest = peripheral.wrap(chestStr)
     end
 end
 
@@ -177,6 +181,7 @@ function sendToRobot(robot, inputItems, nextRecipe)
     for k, v in pairs(inputItems) do
         inputChest.pushItems(robot.name, k)
     end
+    robot.recipe = nextRecipe
     robot.busy = true
 end
 
@@ -195,7 +200,7 @@ end
 
 -- Initializes the computer for mixer automation
 function init()
-    os.sleep(10) -- wait for robots to dump anything that was in the process of being crafted
+    os.sleep(0) -- wait for robots to dump anything that was in the process of being crafted
     
     loadRecipes()
     initChests()
@@ -209,7 +214,7 @@ function main()
     local nextRecipe = nil
     while true do
         local inputItems = inputChest.list()
-        if inputItems ~= nil then
+        if inputItems[1] ~= nil then
             local freeIx = findNextFree()
             if freeIx then
                 nextRecipe = findRecipe(inputItems, nextRecipe)
@@ -227,4 +232,9 @@ function main()
     end
 end
 
-main()
+args = ...
+if args == "debug" or args == "d" then
+    os.loadAPI("mixerDude.lua")
+else
+    main()
+end

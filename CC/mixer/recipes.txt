@@ -1,0 +1,138 @@
+{
+  {
+    inputs = {
+      {
+        name = "minecraft:iron_ingot",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:redstone",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:redstone_ingot",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:green_dye",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:iron_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:sand",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "immersiveengineering:insulating_glass",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "mysticalagriculture:imperium_essense",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:wooden_hoe",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "engineersdecor:dense_grit_dirt_block",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "mysticalagriculture:imperium_farmland",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "mysticalagriculture:supremium_essense",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:wooden_hoe",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "mysticalagriculture:imperium_farmland",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "mysticalagriculture:supremium_farmland",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "mysticalagriculture:insanium_essense",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:wooden_hoe",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "mysticalagriculture:supremium_farmland",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "mysticalagradditions:insanium_farmland",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  -- ... more recipes ...
+}

@@ -21,8 +21,16 @@ end
 
 function getAquamarine()
     for i = 1, 15 do
+        print(i)
         robot.select(i)
         robot.suckDown(64 - robot.getItemCount())
+
+        local item = robot.getItemDetail()
+        if item ~= nil and item.name == "mekanism:block_charcoal" then
+            robot.dropDown()
+            return false
+        end
+        
     end
 end
 

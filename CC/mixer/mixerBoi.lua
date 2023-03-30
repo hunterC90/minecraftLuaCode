@@ -6,10 +6,9 @@
 
 ----- CONFIG VALUES -----
 local heatTime = 0
-local timeSinceCraft = 0
-local craftTime = 0
+local craftTime = 1.85
 
-local heatOverride = false -- If creative blaze cakes are being used set to true
+local heatOverride = true -- If creative blaze cakes are being used set to true
 -------------------------
 
 -- Program parameters
@@ -21,7 +20,7 @@ fuelSide = "bottom"
 robot.init()
 robot.initAutomata()
 robot.setRefuelSlots({16})
-robot.setMinFuelValue(800)
+robot.setMinFuelLevel(800)
 robot.setFuelConsumptionRate(5) -- allows the automata to operate once a second at the cost of 8 fuel
 
 -- I have to do this so the IDE knows about the API
@@ -47,7 +46,7 @@ function initPosition()
     while robot.down() do end
     robot.up()
 
-    local block = robot.inspect()
+    local _,block = robot.inspect()
 
     while block == nil or block.name ~= "create:basin" do
         robot.turnRight()
@@ -59,7 +58,7 @@ end
 function loadRecipes()
     -- delete the old recipes.txt file and get a new one from pastebin
     shell.run("rm recipes.txt")
-    shell.run("pastebin get !CODE HERE! recipes.txt")
+    shell.run("pastebin get MfGwYCTF recipes.txt")
 
     -- open file for reading
     local file = io.open("recipes.txt", "r")
@@ -76,21 +75,6 @@ function loadRecipes()
     end
 end
 
--- TODO: MOVE TO ROBOT API
--- Gets the first empty slot in the turtle
--- Return true if it finds one
--- False if it can't find one
-function getEmptySlot()
-    
-    for i = 1, 16 do
-        robot.select(i)
-        if robot.getItemCount() == 0 then
-            return true
-        end 
-    end
-    return false
-end
-
 -- Initializes the chests
 function initChests()
     ioChest = peripheral.wrap(ioSide)
@@ -105,7 +89,9 @@ end
 -- Clears the items from the basin (also breaks it so clear and liquid)
 function clearItems()
     robot.getEmptySlot()
+    print("using on block")
     robot.useOnBlock(true)
+    print("done")
     robot.getEmptySlot()
     robot.dig()
     robot.place()
@@ -213,13 +199,16 @@ function collectIngredients(ioItems, recipe)
         itemsCopy[i] = v
     end
 
+    local slot = 1
     robot.select(1)
     for _,v1 in pairs(recipe.inputs) do
         for i,v2 in ipairs(itemsCopy) do
             if v1.name == v2.name then
-                medChest.pullItems(ioSide, i)
+                medChest.pullItems(ioSide, slot)
+                slot = slot + 1
                 turtle.suckUp()
                 table.remove(itemsCopy, i)
+                robot.select(robot.getSelectedSlot()+1)
                 break
             end
         end
@@ -228,7 +217,8 @@ end
 
 -- heats the blaze burner if needed
 function heat()
-    if (os.clock - heatTime) < 16 then
+    if (heatTime - os.clock()) < 16 then
+        print("heating")
         robot.down()
         local curSlot = robot.getSelectedSlot()
         robot.select(16)
@@ -264,19 +254,32 @@ function craft(recipe)
         for k,v in pairs(recipe.inputs) do
             robot.select(k)
 
-            -- if bucket then use
-            -- if blazeCake then down and use
-
-            if string.find(v.name, "bucket")  and ~string.find(v.name,"minecraft:bucket") then
+            if string.find(v.name, "bucket")  and not string.find(v.name,"minecraft:bucket") then
                 robot.useOnBlock(true)
+            elseif v.name == "create:blaze_cake" then
+                robot.down()
+                robot.useOnBlock(true)
+                robot.up()
+            else
+                robot.drop(v.count/recipe.craftNum)
             end
         end
+
+        os.sleep(craftTime)
     end
+    robot.useOnBlock(true)
 end
 
 -- Take all of the results and puts them in the ioChest
 function depositResult()
-
+    outputIx = 0
+    for i = 1, 15 do
+        if robot.getItemCount(i) > 0 then
+            robot.select(i)
+            robot.dropUp()
+            medChest.pushItems(ioSide, 1)
+        end
+    end
 end
 
 -- Initializes the computer for mixer automation
@@ -288,7 +291,6 @@ function init()
     initPosition()
     loadRecipes()
     initChests()
-
     clearItems()
 end
 
@@ -300,10 +302,10 @@ function main()
     while true do
         local ioItems = ioChest.list()
 
-        if ioItems ~= nil then
+        if ioItems[1] ~= nil then
             recipe = findRecipe(ioItems, prevRecipe)
 
-            if nextRecipe ~= nil then
+            if recipe ~= nil then
                 collectIngredients(ioItems, recipe)
                 craft(recipe)
                 depositResult()
