@@ -542,9 +542,11 @@ function initWeakAutomataFunctions()
         if not waitFlag and robot.getUseOnBlockCooldown() > 0 then
             return false
         else
+            refuel()
             flag, str = automata.useOnBlock()
             while flag == nil  and waitFlag do
                 os.sleep(0.01)
+                refuel()
                 flag, str = automata.useOnBlock()
             end
             useOnBlockCoolDownS = os.clock()

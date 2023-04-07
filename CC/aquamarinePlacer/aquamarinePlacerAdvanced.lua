@@ -44,7 +44,6 @@ function aquaCheckAndPlace()
 
     -- Check to see that there is no aquamarine and that the tank contains less than 2000mb
     if (wellItems[1] == nil) and ((wellCur[1] == nil or wellCur[1].amount < 2000)) then
-        print("using")
         getItemSlot()
         robot.useOnBlock(true)
     end
@@ -67,7 +66,7 @@ end
 while true do
     getCharcoal()
     getAquamarine()
-
+    getItemSlot()
     if notEmpty() then
         aquaCheckAndPlace()
         robot.right()

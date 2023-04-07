@@ -1,4 +1,4 @@
--- This script automates the mixer in create
+-- This script automates the compactor in create
 -- Assumptions
 -- Constant mechanical power is provided to the mixer
 -- inputs will come in from the top
@@ -6,7 +6,7 @@
 
 ----- CONFIG VALUES -----
 local heatTime = 0
-local craftTime = 1.85
+local craftTime = 0.5
 
 local heatOverride = true -- If creative blaze cakes are being used set to true
 -------------------------
@@ -56,6 +56,7 @@ end
 -- This function loads the recipes.txt file from pastebin and refreshes the recipes
 -- This function gets run when the an unknown recipe shows up
 function loadRecipes()
+
     -- open file for reading
     local file = io.open("recipes.txt", "r")
 

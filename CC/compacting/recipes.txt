@@ -1,0 +1,181 @@
+-- shell.run("rm recipes.txt") shell.run("pastebin get q0DyXpAc recipes.txt")
+-- shell.run("loadAPIs.lua") shell.run("compBoi.lua")
+{
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:black_iron_slate",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:luminessence",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:redstone_ingot",
+        count = 3,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:redstone_component",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:redstone_component",
+        count = 4,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:black_iron_ingot",
+        count = 2,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:redstone_catalyst",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:black_iron_slate",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:luminessence",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:steel_ingot",
+        count = 3,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:basic_component",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:basic_component",
+        count = 4,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:black_iron_ingot",
+        count = 2,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:basic_catalyst",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:black_iron_slate",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:luminessence",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:gold_ingot",
+        count = 3,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:advanced_component",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "extendedcrafting:advanced_component",
+        count = 4,
+        liquid = false,
+      },
+      {
+        name = "extendedcrafting:black_iron_ingot",
+        count = 2,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:advanced_catalyst",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "kubejs:compressed_iron_plate",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:smooth_stone",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "pneumaticcraft:reinforced_stone",
+        count = 4,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  -- ... more recipes ...
+}

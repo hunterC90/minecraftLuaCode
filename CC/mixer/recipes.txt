@@ -1,3 +1,5 @@
+-- shell.run("rm recipes.txt") shell.run("pastebin get MfGwYCTF recipes.txt")
+-- shell.run("loadAPIs.lua") shell.run("mixerBoi.lua")
 {
   {
     inputs = {
@@ -53,7 +55,7 @@
   {
     inputs = {
       {
-        name = "mysticalagriculture:imperium_essense",
+        name = "mysticalagriculture:imperium_essence",
         count = 1,
         liquid = false,
       },
@@ -81,7 +83,7 @@
   {
     inputs = {
       {
-        name = "mysticalagriculture:supremium_essense",
+        name = "mysticalagriculture:supremium_essence",
         count = 1,
         liquid = false,
       },
@@ -109,7 +111,7 @@
   {
     inputs = {
       {
-        name = "mysticalagriculture:insanium_essense",
+        name = "mysticalagradditions:insanium_essence",
         count = 1,
         liquid = false,
       },
@@ -128,6 +130,442 @@
       {
         name = "mysticalagradditions:insanium_farmland",
         count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "botania:pestle_and_mortar",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "botania:black_petal",
+        count = 1,
+        liquid = false,
+      },
+
+    },
+    outputs = {
+      {
+        name = "botania:pestle_and_mortar",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:black_dye",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = false,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "pneumaticcraft:ingot_iron_compressed",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:black_dye",
+        count = 1,
+        liquid = false,
+      },
+
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:black_iron_ingot",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = false,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "thermal:obsidian_glass",
+        count = 2,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:enderium_ingot",
+        count = 1,
+        liquid = false,
+      },
+
+    },
+    outputs = {
+      {
+        name = "thermal:enderium_glass",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = false,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "thermal:obsidian_glass",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:certus_quartz_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:quartz_dust",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "appliedenergistics2:quartz_glass",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = false,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:glowstone_dust",
+        count = 3,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:obsidian_dust",
+        count = 3,
+        liquid = false,
+      },
+      {
+        name = "create:polished_rose_quartz",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "create:chromatic_compound",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:quartz",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:fluix_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "appliedenergistics2:logic_processor",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "appliedenergistics2:annihilation_core",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "emendatusenigmatica:certus_quartz_gem",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:fluix_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "appliedenergistics2:logic_processor",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "appliedenergistics2:formation_core",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "gobber2:gobber2_glob",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "forbidden_arcanus:purifying_soap",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "astralsorcery:starmetal_ingot",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "doom_argent_energy",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "gobber2:gobber2_ingot",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "forbidden_arcanus:arcane_crystal_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "forbidden_arcanus:wax",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:slime_ball",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:prismarine_crystals",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "botania:black_mystical_flower",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "forbidden_arcanus:purifying_soap",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "emendatusenigmatica:enderium_ingot",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "pneumaticcraft:ingot_iron_compressed",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "extendedcrafting:ender_ingot",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "computercraft:cable",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "thermal:enderium_glass",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:quartz_dust",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:certus_quartz_dust",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "appliedenergistics2:quartz_fiber",
+        count = 2,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "greater_eye:greater_eye",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:chorus_fruit",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "greater_eye:greater_eye_end",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:ender_eye",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:diamond",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:emerald",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "greater_eye:greater_eye",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:quartz",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "minecraft:redstone",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "create:rose_quartz",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 1,
+  },
+  {
+    inputs = {
+      {
+        name = "minecraft:iron_ingot",
+        count = 1,
+        liquid = false,
+      },
+      {
+        name = "emendatusenigmatica:lead_ingot",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "eidolon_pewter_ingot",
+        count = 1,
+        liquid = false,
+      },
+    },
+    heated = true,
+    craftNum = 2,
+  },
+  {
+    inputs = {
+      {
+        name = "create:shadow_steel",
+        count = 16,
+        liquid = false,
+      },
+      {
+        name = "minecraft:shulker_shell",
+        count = 1,
+        liquid = false,
+      },
+    },
+    outputs = {
+      {
+        name = "createsupercharged:shadow_shell",
+        count = 1,
         liquid = false,
       },
     },

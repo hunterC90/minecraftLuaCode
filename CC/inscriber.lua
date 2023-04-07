@@ -7,9 +7,11 @@ end)
 
 local inscriberSide = "left"
 local inputSide = "right"
+local outputSide = "top"
 
 local inscriber = peripheral.wrap(inscriberSide)
 local inputChest = peripheral.wrap(inputSide)
+local outputChest = peripheral.wrap(outputSide)
 
 local inscriberSlots = {1, 3, 2}
 
@@ -52,11 +54,11 @@ function craft(v)
         inputChest.pushItems(inscriberSide, slots[i][1], 1, inscriberSlots[i])
     end
 
-    while inscriber.getItemDetail(4) == nil do end
+    while inscriber.getItemDetail(4) == nil do sleep(0) end
     if num == 2 then
         inputChest.pullItems(inscriberSide, inscriberSlots[1])
     end
-    inputChest.pullItems(inscriberSide, 4)
+    outputChest.pullItems(inscriberSide, 4)
     return true
 
 end

@@ -18,13 +18,13 @@ end
 local dt = getDeviceType()
 
 local APIs_all = {
-    ["storage.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/storage.lua?token=GHSAT0AAAAAAB7V2JHNH6PPKG655WDJKVLGZBE6BWQ"
+    ["storage.lua"] = "3MzNhUv4"
 }
 
 local APIs_turtle = {
-    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/setHome.lua?token=GHSAT0AAAAAAB7V2JHMU5L4UXJOE6IYTXZWZBE6BWA",
-    ["egps"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/egps.lua?token=GHSAT0AAAAAAB7V2JHNXZDWZWF26HO7UNVMZBE6BUQ",
-    ["robot.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/Monumental-Experience-1.19-(MC-1.16.5)/CC/APIs/robot.lua?token=GHSAT0AAAAAAB7V2JHN6DQUSR4GW5B5C2DWZBE6BVA"
+    ["home.lua"] = "ad7iiybK",
+    ["egps"] = "9x7wXGBm",
+    ["robot.lua"] = "n26GUHfJ"
 }
 
 local APIs_computer = {
@@ -55,7 +55,7 @@ for k,v in pairs(APIs) do
 
     local f = io.open("APIs/" .. k, "r")
     if f == nil then
-        shell.run("wget " .. v .. " APIs/" .. k)
+        shell.run("pastebin get " .. v .. " APIs/" .. k)
     end
     io.close(f)
 end
@@ -72,7 +72,7 @@ local localFiles_all = {
 }
 
 local localFiles_turtle = {
-    ["home.lua"] = "https://raw.githubusercontent.com/hunterC90/minecraftLuaCode/main/CC/home.lua?token=GHSAT0AAAAAAB7V2JHMLJYH6MNXG5V6U764ZBE55YQ"
+    ["home.lua"] = "KmGB4sne"
 }
 
 local localFiles_computer = {
@@ -99,7 +99,7 @@ for k,v in pairs(localFiles) do
 
     local f = io.open(k, "r")
     if f == nil then
-        shell.run("wget " .. v .. " " .. k)
+        shell.run("pastebin get " .. v .. " " .. k)
     end
     io.close(f)
 end

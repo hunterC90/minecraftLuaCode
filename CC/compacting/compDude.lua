@@ -1,12 +1,8 @@
--- This script is part of the mixer automation
+-- This script is part of the compactor automation
 
 ----- CONFIG VALUES -----
-inputSide = {}
--- sides of input chests
-inputSide = {"minecraft:chest_11",
-             "minecraft:chest_25",
-             "minecraft:chest_26"} 
-outputSide = "minecraft:chest_12" -- side of output chest which connects to AE network
+inputSide = "minecraft:chest_15" -- side of input chest
+outputSide = "minecraft:chest_16" -- side of output chest which connects to AE network
 robotNum = 8
 -------------------------
 
@@ -31,7 +27,7 @@ inputItems = {} -- list of input items from chest.list()
 function loadRecipes()
     -- delete the old recipes.txt file and get a new one from pastebin
     shell.run("rm recipes.txt")
-    shell.run("pastebin get MfGwYCTF recipes.txt")
+    shell.run("pastebin get q0DyXpAc recipes.txt")
 
     -- open file for reading
     local file = io.open("recipes.txt", "r")
@@ -51,9 +47,7 @@ end
 -- function that initializes input and output chests and all chests that go to the robots
 -- it will get chests until there are no more - this way more mixers can be added without needing to change the code
 function initChests()
-    inputChest = {}
-    inputChest[1] = peripheral.wrap(inputSide[1])
-    inputChest[2] = peripheral.wrap(inputSide[2])
+    inputChest = peripheral.wrap(inputSide)
     outputChest = peripheral.wrap(outputSide)
 
     local i = 1
@@ -183,9 +177,9 @@ function findRecipe(inputItems, prevRecipe)
 end
 
 -- Sends the items to the avaliable robot
-function sendToRobot(robot, inputItems, nextRecipe, inputIx)
+function sendToRobot(robot, inputItems, nextRecipe)
     for k, v in pairs(inputItems) do
-        inputChest[inputIx].pushItems(robot.name, k)
+        inputChest.pushItems(robot.name, k)
     end
     robot.recipe = nextRecipe
     robot.busy = true
@@ -219,16 +213,15 @@ function main()
     init()
     local nextRecipe = nil
     while true do
-        for inputIx = 1, #inputChest do
-            local inputItems = inputChest[inputIx].list()
-            if inputItems[1] ~= nil then
-                local freeIx = findNextFree()
-                if freeIx then
-                    nextRecipe = findRecipe(inputItems, nextRecipe)
-                    sendToRobot(robot[freeIx], inputItems, nextRecipe, inputIx)
-                end
+        local inputItems = inputChest.list()
+        if inputItems[1] ~= nil then
+            local freeIx = findNextFree()
+            if freeIx then
+                nextRecipe = findRecipe(inputItems, nextRecipe)
+                sendToRobot(robot[freeIx], inputItems, nextRecipe)
             end
         end
+
         -- loop through all busy robots to check for outputs
         for i = 1, #robot do
             if robot[i].busy then
